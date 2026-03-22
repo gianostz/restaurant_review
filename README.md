@@ -6,10 +6,10 @@ A microservices-based restaurant review platform built with Spring Boot and Reac
 
 ```
 restaurant-review/
-├── user-service/         # Authentication & user management (port 8080)
-├── review-service/       # Review CRUD (port 8081)
-├── restaurant-service/   # Restaurant CRUD & search (port 8082)
-└── restaurant-frontend/  # React frontend (port 5173)
+├── user-service/         # Authentication & user management ($USER_SERVICE_PORT)
+├── review-service/       # Review CRUD ($REVIEW_SERVICE_PORT)
+├── restaurant-service/   # Restaurant CRUD & search ($RESTAURANT_SERVICE_PORT)
+└── restaurant-frontend/  # React frontend ($FRONTEND_PORT)
 ```
 
 All three backend services share a single PostgreSQL database and authenticate requests using JWT tokens issued by `user-service`.
@@ -40,12 +40,12 @@ cp .env.example .env   # fill in your values
 docker-compose up
 ```
 
-| Service | URL |
-|---|---|
-| Frontend | http://localhost:5173 |
-| user-service | http://localhost:8080 |
-| review-service | http://localhost:8081 |
-| restaurant-service | http://localhost:8082 |
+| Service | Default URL | Port variable |
+|---|---|---|
+| Frontend | http://localhost:5173 | `FRONTEND_PORT` |
+| user-service | http://localhost:8080 | `USER_SERVICE_PORT` |
+| review-service | http://localhost:8081 | `REVIEW_SERVICE_PORT` |
+| restaurant-service | http://localhost:8082 | `RESTAURANT_SERVICE_PORT` |
 
 ### Local backend development (DB only in Docker)
 
@@ -81,7 +81,7 @@ npm run dev
 
 ## API Reference
 
-### user-service — `http://localhost:8080`
+### user-service — `http://localhost:$USER_SERVICE_PORT`
 
 | Method | Endpoint | Auth | Description |
 |---|---|---|---|
@@ -89,7 +89,7 @@ npm run dev
 | POST | `/users/login` | No | Login, returns JWT token |
 | GET | `/users/user/{id}` | Yes | Get user by ID |
 
-### review-service — `http://localhost:8081`
+### review-service — `http://localhost:$REVIEW_SERVICE_PORT`
 
 | Method | Endpoint | Auth | Description |
 |---|---|---|---|
@@ -107,7 +107,7 @@ npm run dev
 ```
 Rating must be between 1 and 10.
 
-### restaurant-service — `http://localhost:8082`
+### restaurant-service — `http://localhost:$RESTAURANT_SERVICE_PORT`
 
 | Method | Endpoint | Auth | Description |
 |---|---|---|---|
