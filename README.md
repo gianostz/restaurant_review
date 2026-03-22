@@ -35,7 +35,7 @@ All three backend services share a single PostgreSQL database and authenticate r
 
 ```bash
 # Copy and configure environment variables
-cp .env.example .env   # edit POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB, JWT_SECRET
+cp .env.example .env   # fill in your values
 
 docker-compose up
 ```
@@ -72,6 +72,10 @@ npm run dev
 | `POSTGRES_DB` | Database name |
 | `POSTGRES_HOST` | Database host |
 | `POSTGRES_PORT` | Database port |
+| `USER_SERVICE_PORT` | External port for user-service (default `8080`) |
+| `REVIEW_SERVICE_PORT` | External port for review-service (default `8081`) |
+| `RESTAURANT_SERVICE_PORT` | External port for restaurant-service (default `8082`) |
+| `FRONTEND_PORT` | External port for the frontend (default `5173`) |
 | `JWT_SECRET` | Shared secret for JWT signing (all services) |
 | `JWT_EXPIRATION` | Token expiration in milliseconds (e.g. `3600000` for 1h) |
 
