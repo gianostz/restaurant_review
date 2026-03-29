@@ -75,7 +75,7 @@ const ReviewList: FC<ReviewListProps> = ({reviews, handleDelete, jwtToken}) => {
             await Promise.all(
                 uniqueIds.map(async (id) => {
                     try {
-                        const res = await axios.get(`http://localhost:8082/restaurant/restaurant/${id}`, {
+                        const res = await axios.get(`/restaurant/restaurant/${id}`, {
                             headers: {
                                 Authorization: `Bearer ${jwtToken}`,
                             },
@@ -103,7 +103,7 @@ const ReviewList: FC<ReviewListProps> = ({reviews, handleDelete, jwtToken}) => {
             await Promise.all(
                 uniqueIds.map(async (id) => {
                     try {
-                        const res = await axios.get(`http://localhost:8080/users/user/${id}`, {
+                        const res = await axios.get(`/users/user/${id}`, {
                             headers: {
                                 Authorization: `Bearer ${jwtToken}`,
                             },

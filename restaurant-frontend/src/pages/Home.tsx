@@ -19,7 +19,7 @@ const Home: FC = () => {
     const pageSize = 5;
 
     const fetchReviews = (page: number) => {
-        fetch(`http://localhost:8081/reviews/?page=${page}&pageSize=${pageSize}`, {
+        fetch(`/reviews/?page=${page}&pageSize=${pageSize}`, {
             headers: {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "application/json",
@@ -54,7 +54,7 @@ const Home: FC = () => {
     const handleDelete = async (reviewId: number) => {
         if (!confirm("Sei sicuro di voler eliminare questa recensione?")) return;
         try {
-            const res = await fetch(`http://localhost:8081/reviews/review/${reviewId}`, {
+            const res = await fetch(`/reviews/review/${reviewId}`, {
                 method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`

@@ -37,7 +37,7 @@ const ReviewForm: FC<ReviewFormProps> = ({onSuccess}) => {
         if (partialName.length <= 1) return;
         const currentPage = reset ? 0 : page;
         try {
-            const res = await fetch(`http://localhost:8082/restaurant/search?partialName=${partialName}&page=${currentPage}&pageSize=${pageSize}`, {
+            const res = await fetch(`/restaurant/search?partialName=${partialName}&page=${currentPage}&pageSize=${pageSize}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'application/json'
@@ -64,7 +64,7 @@ const ReviewForm: FC<ReviewFormProps> = ({onSuccess}) => {
         e.preventDefault();
         setSubmitting(true);
         try {
-            const res = await fetch("http://localhost:8081/reviews/create", {
+            const res = await fetch("/reviews/create", {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -91,7 +91,7 @@ const ReviewForm: FC<ReviewFormProps> = ({onSuccess}) => {
         e.preventDefault();
         setSubmitting(true);
         try {
-            const res = await fetch("http://localhost:8082/restaurant/create", {
+            const res = await fetch("/restaurant/create", {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`,
