@@ -18,7 +18,7 @@ const Register: FC = () => {
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
-      const response = await fetch("http://localhost:8080/users/register", {
+      const response = await fetch("/users/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

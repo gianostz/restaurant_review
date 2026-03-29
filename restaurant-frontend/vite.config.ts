@@ -8,4 +8,12 @@ export default defineConfig({
       react(),
       tailwindcss(),
   ],
+  server: {
+    allowedHosts: true,
+    proxy: {
+      '/users': 'http://user-service:8080',
+      '/reviews': 'http://review-service:8080',
+      '/restaurant': 'http://restaurant-service:8080',
+    }
+  }
 })
